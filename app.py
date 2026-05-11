@@ -562,8 +562,9 @@ with tabs[3]:
                 f'<div class="section-header">📦 PKL Vocabulary — {len(pkl_data["vocab"])} skills</div>',
                 unsafe_allow_html=True,
             )
+            pkl_df = pkl_data["df"]
             chips_pkl = "".join(
-                f'<span class="vocab-chip" title="df={pkl_data[\"df\"].get(s, \"?\")}"> {s}</span>'
+                '<span class="vocab-chip" title="df=' + str(pkl_df.get(s, "?")) + '"> ' + s + '</span>'
                 for s in pkl_data["vocab"]
             )
             st.markdown(f'<div style="line-height:2.2">{chips_pkl}</div>', unsafe_allow_html=True)
